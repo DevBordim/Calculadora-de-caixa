@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request
 
-app = Flask(__name__)
+# Configure Flask para procurar templates na pasta raiz
+app = Flask(__name__, template_folder='.')
 
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/index')
 def index():
-    return render_template('index.html')
+    return render_template('templates/index.html')
 
 @app.route('/calcular', methods=['POST'])
 def calcular():
@@ -18,7 +23,7 @@ def calcular():
         cha = float(request.form['cha'].replace(',', '.')) if request.form['cha'] else 0
         rets = float(request.form['rets'].replace(',', '.')) if request.form['rets'] else 0
         encer = float(request.form['encer'].replace(',', '.')) if request.form['encer'] else 0
-        crediario = float(request.form['encer'].replace(',', '.')) if request.form['crediario'] else 0
+        crediario = float(request.form['crediario'].replace(',', '.')) if request.form['crediario'] else 0
 
         cards = cre + deb
         total = din + cre + deb + prazo + pix + chp + cha + rets + crediario
@@ -30,7 +35,7 @@ def calcular():
         else:
             status = f"O caixa está sobrando: R$ {resul:.2f}"
 
-        return render_template('resultado.html', cards=f"Total cartões: R$ {cards:.2f}", total=f"O valor total é: R$ {total:.2f}", status=status, totaldin=f"total dinheiro é R$ {totaldin:.2f}" )
+        return render_template('templates/resultado.html', cards=f"Total cartões: R$ {cards:.2f}", total=f"O valor total é: R$ {total:.2f}", status=status, totaldin=f"Total dinheiro é: R$ {totaldin:.2f}")
     except ValueError:
         return "Erro de entrada: Por favor, insira apenas números válidos."
 
