@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Resultado</h1>
+        <p>total dinheiro: {{ totaldin }}</p>
+        <p>Total de cartões: {{ cards }}</p>
+        <p>O valor total é: {{ total }}</p>
+        <p>O caixa está: {{ status }}</p>
+        <a href="/" class="btn btn-secondary">Voltar</a>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>

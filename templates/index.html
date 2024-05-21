@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Caixa</title>
+    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Calculadora de Caixa</h1>
+        <form action="/calcular" method="post">
+            <div class="form-group">
+                <label for="din">O valor do dinheiro é:</label>
+                <input type="text" class="form-control" id="din" name="din">
+            </div>
+            <div class="form-group">
+                <label for="cre">O valor do Crédito é:</label>
+                <input type="text" class="form-control" id="cre" name="cre">
+            </div>
+            <div class="form-group">
+                <label for="deb">O valor do Débito é:</label>
+                <input type="text" class="form-control" id="deb" name="deb">
+            </div>
+            <div class="form-group">
+                <label for="prazo">O valor a Prazo é:</label>
+                <input type="text" class="form-control" id="prazo" name="prazo">
+            </div>
+            <div class="form-group">
+                <label for="pix">O valor do pix é:</label>
+                <input type="text" class="form-control" id="pix" name="pix">
+            </div>
+            <div class="form-group">
+                <label for="chp">O valor do cheque pré é:</label>
+                <input type="text" class="form-control" id="chp" name="chp">
+            </div>
+            <div class="form-group">
+                <label for="cha">O valor do cheque à vista é:</label>
+                <input type="text" class="form-control" id="cha" name="cha">
+            </div>
+            <div class="form-group">
+                <label for="rets">As retiradas são:</label>
+                <input type="text" class="form-control" id="rets" name="rets">
+            </div>
+            <div class="form-group">
+                <label for="crediario">Qual o valor do crediario?</label>
+                <input type="text" class="form-control" id="crediario" name="crediario">
+            </div>
+            <div class="form-group">
+                <label for="encer">Qual o valor do encerrante impresso?</label>
+                <input type="text" class="form-control" id="encer" name="encer">
+            </div>
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
